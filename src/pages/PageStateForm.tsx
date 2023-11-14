@@ -59,43 +59,56 @@ export const PageStateForm = () => {
 	};
 
 	return (
-		<form>
-			<fieldset className="border border-slate-500 p-4 rounded max-w-[15rem]">
-				<legend>New Member</legend>
+		<section className="flex gap-8">
+			<form>
+				<fieldset className="border border-slate-500 p-4 rounded max-w-[15rem]">
+					<legend>New Member</legend>
 
-				<div className="flex gap-2 mb-4">
-					<label htmlFor="firstName" className="w-32">{formInfo.fields.firstName.label}</label>
-					<input
-						type="text"
-						onChange={handleFieldFirstName}
-						value={formInfo.fields.firstName.value}
-						id="firstName"
-					/>
-				</div>
+					<div className="flex gap-2 mb-4">
+						<label htmlFor="firstName" className="w-32">
+							{formInfo.fields.firstName.label}
+						</label>
+						<input
+							type="text"
+							onChange={handleFieldFirstName}
+							value={formInfo.fields.firstName.value}
+							id="firstName"
+						/>
+					</div>
 
-				<div className="flex gap-2 mb-4">
-					<label htmlFor="lastName" className="w-32">{formInfo.fields.lastName.label}</label>
-					<input
-						type="text"
-						onChange={handleFieldLastName}
-						value={formInfo.fields.lastName.value}
-						id="lastName"
-					/>
-				</div>
+					<div className="flex gap-2 mb-4">
+						<label htmlFor="lastName" className="w-32">
+							{formInfo.fields.lastName.label}
+						</label>
+						<input
+							type="text"
+							onChange={handleFieldLastName}
+							value={formInfo.fields.lastName.value}
+							id="lastName"
+						/>
+					</div>
 
-				<div className="flex gap-2 mb-4">
-					<label htmlFor="age" className="w-32">{formInfo.fields.age.label}</label>
-					<input
-						type="text"
-						className="w-12 text-right"
-						onChange={handleFieldAge}
-						value={formInfo.fields.age.value}
-						id="age"
-					/>
-				</div>
+					<div className="flex gap-2 mb-4">
+						<label htmlFor="age" className="w-32">
+							{formInfo.fields.age.label}
+						</label>
+						<input
+							type="text"
+							className="w-12 text-right"
+							onChange={handleFieldAge}
+							value={formInfo.fields.age.value}
+							id="age"
+						/>
+					</div>
 
-				<button>Submit</button>
-			</fieldset>
-		</form>
+					<button>Submit</button>
+				</fieldset>
+			</form>
+			<section>
+				<pre className="text-xs text-orange-900">
+				{JSON.stringify(formInfo, null, 2)}
+				</pre>
+			</section>
+		</section>
 	);
 };
