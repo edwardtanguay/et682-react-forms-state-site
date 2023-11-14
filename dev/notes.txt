@@ -10,11 +10,11 @@
 	- x show error
 		- x make formInfo.message
 
-- age field validation
-	- "/" => 5
-	- force age to be number
+- x age field validation
+	- x "/" => 5
+	- x force age to be number
 		
-- react to other code responses
+- .. react to other code responses
 	- 404
 		- set formInfo.status = "error
 		- show error

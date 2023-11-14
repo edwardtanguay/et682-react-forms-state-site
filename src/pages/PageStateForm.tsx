@@ -72,8 +72,6 @@ export const PageStateForm = () => {
 	const handleSubmitForm = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 
-		// const _formInfo = structuredClone(formInfo);
-		// _formInfo.
 		setFormInfo({ ...formInfo, message: "", status: "sending" });
 
 		const member = {
@@ -97,6 +95,13 @@ export const PageStateForm = () => {
 					);
 					if (response.status === 201) {
 						setFormInfo(initialFormInfo);
+					} else if (response.status === 404) {
+					setFormInfo({
+						...formInfo,
+						status: "error",
+						message: "Please try again."
+						
+					});
 					}
 				} catch (e) {
 					setFormInfo({
