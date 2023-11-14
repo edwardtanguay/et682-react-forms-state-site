@@ -8,7 +8,9 @@ export const Nav = () => {
 			<li><NavLink to="/simple-form">Simple Form</NavLink></li>
 			)}
 			<li><NavLink to="/employees">Employees</NavLink></li>
-			<li><NavLink to="/about">About</NavLink></li>
+			{config.environment === 'development' && (
+				<li><NavLink to="/state-form">State Form</NavLink></li>
+			)}
 		</ul>
 	</nav>;
 };
