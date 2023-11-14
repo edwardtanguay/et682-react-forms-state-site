@@ -5,13 +5,13 @@
 	- x submit button disabled
 	- x all fields disabled
 
-- .. react to server being off (network timeout)
-	- .. set formInfo.status = "error"
-	- .. show error
-		- .. make formInfo.message
+- x react to server being off (network timeout)
+	- x set formInfo.status = "error"
+	- x show error
+		- x make formInfo.message
 
 - age field validation
-	- "/"
+	- "/" => 5
 	- force age to be number
 		
 - react to other code responses

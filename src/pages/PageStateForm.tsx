@@ -59,7 +59,13 @@ export const PageStateForm = () => {
 	const handleFieldAge = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const value = e.target.value;
 		const _formInfo = structuredClone(formInfo);
-		_formInfo.fields.age.value = value;
+		if (value === "/") {
+			_formInfo.fields.age.value = "29";
+		} else if(isNaN(Number(value))) {
+			_formInfo.fields.age.value = value.slice(0, -1);
+		} else {
+			_formInfo.fields.age.value = value;
+		}
 		setFormInfo(_formInfo);
 	};
 
