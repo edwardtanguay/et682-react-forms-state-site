@@ -1,4 +1,5 @@
 import { useState } from "react";
+import * as config from "../config";
 
 const initialFormInfo = {
 	fields: {
@@ -104,11 +105,13 @@ export const PageStateForm = () => {
 					<button>Submit</button>
 				</fieldset>
 			</form>
-			<section>
-				<pre className="text-xs text-orange-900">
-				{JSON.stringify(formInfo, null, 2)}
-				</pre>
-			</section>
+			{config.debugging && (
+				<section>
+					<pre className="text-xs text-orange-900">
+						{JSON.stringify(formInfo, null, 2)}
+					</pre>
+				</section>
+			)}
 		</section>
 	);
 };
