@@ -14,9 +14,14 @@
 	- x "/" => 5
 	- x force age to be number
 		
-- .. react to other code responses
-	- 404
-		- set formInfo.status = "error
-		- show error
+- x react to other code responses
+	- x 404
+		- x set formInfo.status = "error
+		- x show error
+- x test pressing enter in field
 
-- test pressing enter in field
+- .. put port number in config
+
+- dropdown
+- checkbox
+- radio buttons
