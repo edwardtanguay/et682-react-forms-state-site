@@ -102,7 +102,9 @@ export const PageStateForm = () => {
 						/>
 					</div>
 
-					<button>Submit</button>
+					<div className="flex justify-end">
+						<button>Submit</button>
+					</div>
 				</fieldset>
 			</form>
 			{config.debugging && (
