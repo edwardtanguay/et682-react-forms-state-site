@@ -5,9 +5,10 @@
 	- x submit button disabled
 	- x all fields disabled
 
-- react to server being off (network timeout)
-	- set formInfo.status = "error"
-	- show error
+- .. react to server being off (network timeout)
+	- .. set formInfo.status = "error"
+	- .. show error
+		- .. make formInfo.message
 - react to other code responses
 	- 404
 		- set formInfo.status = "error

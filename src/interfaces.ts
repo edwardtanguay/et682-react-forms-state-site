@@ -26,5 +26,6 @@ export interface IFormFields {
 
 export interface IFormInfo {
 	status: "active" | "sending" | "error";
+	message: string;
 	fields: IFormFields;
 }

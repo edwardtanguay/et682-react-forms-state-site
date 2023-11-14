@@ -5,6 +5,7 @@ import { IFormInfo } from "../interfaces";
 
 const initialFormInfo: IFormInfo = {
 	status: "active",
+	message: "",
 	fields: {
 		firstName: {
 			label: "First Name",
@@ -92,7 +93,7 @@ export const PageStateForm = () => {
 						setFormInfo(initialFormInfo);
 					}
 				} catch (e) {
-					console.log(axios.AxiosError);
+					setFormInfo({ ...initialFormInfo, status: "error" });
 				}
 			})();
 		}, 2000);
@@ -101,7 +102,8 @@ export const PageStateForm = () => {
 	return (
 		<section className="flex gap-8">
 			<form onSubmit={handleSubmitForm}>
-				<fieldset className="border border-slate-500 p-4 rounded max-w-[15rem]">
+{/*  */}
+				<fieldset className={`border p-4 rounded max-w-[15rem] ${formInfo.status === 'error' ? 'border-red-500' : 'border-slate-500'}`}>
 					<legend>New Member</legend>
 
 					<div className="flex gap-2 mb-4">
@@ -144,7 +146,8 @@ export const PageStateForm = () => {
 						/>
 					</div>
 
-					<div className="flex justify-end">
+					<div className="flex justify-between">
+						<p className="text-red-700">{formInfo.message}</p>
 						<button
 							className={`${
 								formInfo.status === "sending"
