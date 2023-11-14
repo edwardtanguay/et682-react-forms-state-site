@@ -1,4 +1,4 @@
-@url = http://127.0.0.1:3021
+@url = http://localhost:4801
 	
 ### GET ALL EMPLOYEES
 {{url}}/employees

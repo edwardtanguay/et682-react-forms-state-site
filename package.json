@@ -6,7 +6,7 @@
 	"scripts": {
 		"dev": "run-p api frontend",
 		"frontend": "vite --port 3020 --open",
-		"api": "json-server --watch ./src/data/db.json --port 3021",
+		"api": "json-server --watch ./src/data/db.json --port 4801",
 		"build": "tsc && vite build",
 		"lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
 		"preview": "vite preview",
