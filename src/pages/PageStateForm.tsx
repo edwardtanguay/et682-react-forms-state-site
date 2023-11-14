@@ -67,7 +67,7 @@ export const PageStateForm = () => {
 
 		// const _formInfo = structuredClone(formInfo);
 		// _formInfo.
-		setFormInfo({ ...formInfo, status: 'sending' });
+		setFormInfo({ ...formInfo, status: "sending" });
 
 		const member = {
 			firstName: formInfo.fields.firstName.value,
@@ -80,22 +80,26 @@ export const PageStateForm = () => {
 			"Content-Type": "application/json",
 		};
 
-		(async () => {
-			try {
-				const response = await axios.post(
-					"http://localhost:4801/members",
-					member,
-					{ headers }
-				);
-			} catch (e) {
-				console.log(axios.AxiosError);
-			}
-		})();
+		setTimeout(() => {
+			(async () => {
+				try {
+					const response = await axios.post(
+						"http://localhost:4801/members",
+						member,
+						{ headers }
+					);
+					if (response.status === 201) {
+						setFormInfo(initialFormInfo);
+					}
+				} catch (e) {
+					console.log(axios.AxiosError);
+				}
+			})();
+		}, 2000);
 	};
 
 	return (
 		<section className="flex gap-8">
-			[{formInfo.status}]
 			<form onSubmit={handleSubmitForm}>
 				<fieldset className="border border-slate-500 p-4 rounded max-w-[15rem]">
 					<legend>New Member</legend>
@@ -106,7 +110,7 @@ export const PageStateForm = () => {
 						</label>
 						<input
 							type="text"
-							disabled={formInfo.status === 'sending'}
+							disabled={formInfo.status === "sending"}
 							onChange={handleFieldFirstName}
 							value={formInfo.fields.firstName.value}
 							id="firstName"
@@ -119,7 +123,7 @@ export const PageStateForm = () => {
 						</label>
 						<input
 							type="text"
-							disabled={formInfo.status === 'sending'}
+							disabled={formInfo.status === "sending"}
 							onChange={handleFieldLastName}
 							value={formInfo.fields.lastName.value}
 							id="lastName"
@@ -132,7 +136,7 @@ export const PageStateForm = () => {
 						</label>
 						<input
 							type="text"
-							disabled={formInfo.status === 'sending'}
+							disabled={formInfo.status === "sending"}
 							className="w-12 text-right"
 							onChange={handleFieldAge}
 							value={formInfo.fields.age.value}
@@ -140,9 +144,17 @@ export const PageStateForm = () => {
 						/>
 					</div>
 
-					<div className="flex justify-end" >
-						<button className={`${formInfo.status === 'sending' ? 'opacity-70 hover:bg-gray-500' : ''}`} disabled={formInfo.status === 'sending'}
-						>Submit</button>
+					<div className="flex justify-end">
+						<button
+							className={`${
+								formInfo.status === "sending"
+									? "opacity-70 hover:bg-gray-500"
+									: ""
+							}`}
+							disabled={formInfo.status === "sending"}
+						>
+							Submit
+						</button>
 					</div>
 				</fieldset>
 			</form>
