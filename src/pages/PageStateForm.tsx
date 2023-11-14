@@ -14,6 +14,12 @@ const initialFormInfo = {
 			isRequired: true,
 			isValid: true,
 		},
+		age: {
+			label: "Age",
+			value: "",
+			isRequired: true,
+			isValid: true,
+		},
 	},
 };
 
@@ -45,6 +51,13 @@ export const PageStateForm = () => {
 		setFormInfo(_formInfo);
 	};
 
+	const handleFieldAge = (e: React.ChangeEvent<HTMLInputElement>) => {
+		const value = e.target.value;
+		const _formInfo = structuredClone(formInfo);
+		_formInfo.fields.age.value = value;
+		setFormInfo(_formInfo);
+	};
+
 	return (
 		<form>
 			<fieldset className="border border-slate-500 p-4 rounded max-w-[15rem]">
@@ -67,6 +80,17 @@ export const PageStateForm = () => {
 						onChange={handleFieldLastName}
 						value={formInfo.fields.lastName.value}
 						id="lastName"
+					/>
+				</div>
+
+				<div className="flex gap-2 mb-4">
+					<label htmlFor="age" className="w-32">{formInfo.fields.age.label}</label>
+					<input
+						type="text"
+						className="w-12 text-right"
+						onChange={handleFieldAge}
+						value={formInfo.fields.age.value}
+						id="age"
 					/>
 				</div>
 
