@@ -9,6 +9,11 @@
 	- .. set formInfo.status = "error"
 	- .. show error
 		- .. make formInfo.message
+
+- age field validation
+	- "/"
+	- force age to be number
+		
 - react to other code responses
 	- 404
 		- set formInfo.status = "error

@@ -68,7 +68,7 @@ export const PageStateForm = () => {
 
 		// const _formInfo = structuredClone(formInfo);
 		// _formInfo.
-		setFormInfo({ ...formInfo, status: "sending" });
+		setFormInfo({ ...formInfo, message: "", status: "sending" });
 
 		const member = {
 			firstName: formInfo.fields.firstName.value,
@@ -93,7 +93,12 @@ export const PageStateForm = () => {
 						setFormInfo(initialFormInfo);
 					}
 				} catch (e) {
-					setFormInfo({ ...initialFormInfo, status: "error" });
+					setFormInfo({
+						...formInfo,
+						status: "error",
+						message:
+							"Sorry, we can't handle your request at this moment. Please try again.",
+					});
 				}
 			})();
 		}, 2000);
@@ -102,8 +107,14 @@ export const PageStateForm = () => {
 	return (
 		<section className="flex gap-8">
 			<form onSubmit={handleSubmitForm}>
-{/*  */}
-				<fieldset className={`border p-4 rounded max-w-[15rem] ${formInfo.status === 'error' ? 'border-red-500' : 'border-slate-500'}`}>
+				{/*  */}
+				<fieldset
+					className={`border p-4 rounded max-w-[15rem] ${
+						formInfo.status === "error"
+							? "border-red-500"
+							: "border-slate-500"
+					}`}
+				>
 					<legend>New Member</legend>
 
 					<div className="flex gap-2 mb-4">
@@ -146,10 +157,12 @@ export const PageStateForm = () => {
 						/>
 					</div>
 
-					<div className="flex justify-between">
-						<p className="text-red-700">{formInfo.message}</p>
+					<div className="flex justify-between items-center gap-3">
+						<p className="text-red-700 text-xs">
+							{formInfo.message}
+						</p>
 						<button
-							className={`${
+							className={`block ${
 								formInfo.status === "sending"
 									? "opacity-70 hover:bg-gray-500"
 									: ""
