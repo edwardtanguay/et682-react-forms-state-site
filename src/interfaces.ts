@@ -10,3 +10,21 @@ export interface IFrontendEmployee {
 export interface IBackendEmployee extends IFrontendEmployee {
 	id: number;
 }
+
+export interface IFormField {
+	label: string;
+	value: string;
+	isRequired: boolean;
+	isValid: boolean;
+}
+
+export interface IFormFields {
+	firstName: IFormField;
+	lastName: IFormField;
+	age: IFormField;
+}
+
+export interface IFormInfo {
+	status: "active" | "sending" | "error";
+	fields: IFormFields;
+}

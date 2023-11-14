@@ -1,0 +1,16 @@
+- x create interface 
+	- x formInfo.status = "active" | "sending" | "error"
+- .. on submit click
+	- .. change formInfo
+	- submit button disabled
+	- all fields disabled
+
+- react to server being off (network timeout)
+	- set formInfo.status = "error"
+	- show error
+- react to other code responses
+	- 404
+		- set formInfo.status = "error
+		- show error
+
+- test pressing enter in field
