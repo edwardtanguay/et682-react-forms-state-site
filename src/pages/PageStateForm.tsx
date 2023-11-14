@@ -20,10 +20,16 @@ export const PageStateForm = () => {
 		_formInfo.fields.firstName.value = value;
 		setFormInfo(_formInfo);
 
-		// setFormInfo({...formInfo, value: e.target.value})
-
-		//  setFormInfo({...formInfo, fields.firstName: { ...formInfo.fields.firstName, value: e.target.value },
-// /   });
+		// setFormInfo({
+		//   ...formInfo,
+		//   fields: {
+		//     ...formInfo.fields,
+		//     firstName: {
+		//       ...formInfo.fields.firstName,
+		//       value: e.target.value,
+		//     },
+		//   },
+		// });
 	};
 	return (
 		<form>
